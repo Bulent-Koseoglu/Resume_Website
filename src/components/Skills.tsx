@@ -5,29 +5,29 @@ export default function Skills() {
     {
       title: 'Programming Languages',
       icon: <Code size={20} />,
-      skills: ['Python', 'Java', 'C#', 'C / C++', 'JavaScript'],
+      skills: ['C', 'C++', 'AVR C (Embedded)', 'C#', 'JavaScript'],
     },
     {
-      title: 'Web Development',
+      title: 'Frameworks & Platforms',
       icon: <Globe size={20} />,
-      skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+      skills: ['Unity 6 (URP)', 'OpenXR', 'XR Interaction Toolkit', 'NavMesh', 'Arduino', 'WOKWI Simulation'],
     },
     {
-      title: 'Tools & Platforms',
+      title: 'Tools & Methodologies',
       icon: <Wrench size={20} />,
-      skills: ['Git', 'GitHub', 'VS Code', 'Unity', 'Cisco Packet Tracer', 'Figma'],
+      skills: ['Git', 'GitHub', 'VS Code', 'OOP (Inheritance, Polymorphism, Encapsulation)', 'FSM (Finite State Machines)', 'Observer & Singleton Patterns'],
     },
     {
-      title: 'Computer Engineering Topics',
+      title: 'Engineering Topics',
       icon: <BookOpen size={20} />,
       skills: [
+        'VR/AR Development',
+        'Embedded Systems',
         'Computer Networks',
         'Distributed Systems',
-        'Object-Oriented Programming',
-        'Data Structures',
-        'Database Systems',
-        'AR/VR Development',
         'IoT Systems',
+        'Physics-Based Simulation',
+        'AI Agent Design',
       ],
     },
   ];
@@ -35,8 +35,8 @@ export default function Skills() {
   return (
     <section id="skills" className="section container">
       <div className="section-header">
-        <h2 className="section-title">My Skills</h2>
-        <p className="section-subtitle">Technical competencies and academic topics I've mastered during my engineering studies.</p>
+        <h2 className="section-title">Technical Skills</h2>
+        <p className="section-subtitle">Core competencies covering low-level systems, immersive experiences, and software architecture.</p>
       </div>
 
       <div className="skills-grid">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X, Terminal, Languages } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface NavbarProps {
   activeSection: string;
@@ -8,14 +9,15 @@ interface NavbarProps {
 export default function Navbar({ activeSection }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { language, t, toggleLanguage } = useLanguage();
 
   const navLinks = [
-    { label: 'Home', target: '#home' },
-    { label: 'About', target: '#about' },
-    { label: 'Skills', target: '#skills' },
-    { label: 'Projects', target: '#projects' },
-    { label: 'Education', target: '#education' },
-    { label: 'Contact', target: '#contact' },
+    { label: t.nav.home, target: '#home' },
+    { label: t.nav.about, target: '#about' },
+    { label: t.nav.skills, target: '#skills' },
+    { label: t.nav.projects, target: '#projects' },
+    { label: t.nav.education, target: '#education' },
+    { label: t.nav.contact, target: '#contact' },
   ];
 
   useEffect(() => {
@@ -52,7 +54,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
           {/* Desktop Menu */}
           <ul className="navbar-menu">
             {navLinks.map((link) => (
-              <li key={link.label}>
+              <li key={link.target}>
                 <a
                   href={link.target}
                   className={`navbar-link ${activeSection === link.target.substring(1) ? 'active' : ''}`}
@@ -67,10 +69,22 @@ export default function Navbar({ activeSection }: NavbarProps) {
             ))}
           </ul>
 
-          {/* Mobile Menu Toggle */}
-          <button className="navbar-toggle" onClick={toggleMenu} aria-label="Toggle menu">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Language Toggle + Mobile Menu Toggle */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <button
+              className="lang-toggle-btn"
+              onClick={toggleLanguage}
+              aria-label="Toggle language"
+              title={language === 'en' ? 'Türkçe\'ye geç' : 'Switch to English'}
+            >
+              <Languages size={16} />
+              <span className="lang-toggle-label">{language === 'en' ? 'TR' : 'EN'}</span>
+            </button>
+
+            <button className="navbar-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -79,7 +93,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
         <div className="mobile-menu-overlay">
           {navLinks.map((link) => (
             <a
-              key={link.label}
+              key={link.target}
               href={link.target}
               className={`mobile-menu-link ${activeSection === link.target.substring(1) ? 'active' : ''}`}
               onClick={(e) => {
@@ -90,6 +104,16 @@ export default function Navbar({ activeSection }: NavbarProps) {
               {link.label}
             </a>
           ))}
+
+          {/* Language toggle in mobile menu too */}
+          <button
+            className="lang-toggle-btn"
+            onClick={toggleLanguage}
+            style={{ marginTop: '16px', alignSelf: 'center' }}
+          >
+            <Languages size={16} />
+            <span className="lang-toggle-label">{language === 'en' ? 'Türkçe' : 'English'}</span>
+          </button>
         </div>
       )}
 

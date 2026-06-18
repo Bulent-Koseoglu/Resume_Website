@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Eye, X, Network, Cpu, Brain, FileText } from 'lucide-react';
+import { ExternalLink, Eye, X, Network, Cpu, Brain, Gamepad2 } from 'lucide-react';
 import { Github } from './BrandIcons';
 
 interface Project {
@@ -11,6 +11,7 @@ interface Project {
   githubLink: string;
   demoLink: string;
   detailsContent: string;
+  date: string;
 }
 
 export default function Projects() {
@@ -18,65 +19,71 @@ export default function Projects() {
 
   const projectsData: Project[] = [
     {
-      title: 'Ringside AI – VR Boxing Training App',
-      description: 'A VR boxing training application designed to help users improve their boxing skills through interactive training modes and AI-based coaching concepts.',
+      title: 'VR Boxing: Advanced Combat System',
+      description: 'A physics-based VR boxing simulation optimized for Meta Quest and Valve Index platforms using Unity 6 and OpenXR.',
+      date: 'April 2026',
       icon: <Brain size={24} className="project-icon" />,
       features: [
-        'AI Coach for personalized training plans',
-        'Combo Trainer for boxing combinations',
-        'Virtual Mitts for reaction training',
-        'Workout Logger for progress tracking',
-        'Form Check concept for technique analysis',
+        'Physics-based VR boxing simulation for Meta Quest & Valve Index',
+        'PunchDetector system using vector analysis & velocity tracking to classify Jab, Hook, Uppercut',
+        'Advanced opponent AI with NavMesh and Finite State Machines (FSM)',
+        'Continuous Collision Detection (CCD) & ConfigurableJoint for realistic physics',
+        'Decoupled architecture using Observer & Singleton patterns for real-time HUD, scoring, and spatial audio',
       ],
-      technologies: ['Unity', 'C#', 'VR SDK', 'AI Concept Design'],
+      technologies: ['Unity 6 (URP)', 'C#', 'OpenXR', 'XR Interaction Toolkit', 'NavMesh'],
       githubLink: 'https://github.com',
       demoLink: 'https://github.com',
-      detailsContent: 'Ringside AI merges physical training with virtual reality and modern AI concepts. By rendering an interactive avatar using physics-based interactions in Unity, it simulates real sparring mitts. The AI system runs localized analytical heuristics to assess punch velocity, form angle, and rest intervals, subsequently suggesting personalized training plans. It targets both hobbyist athletes and professionals wishing to train reaction times inside a controlled environment.'
+      detailsContent: 'Developed a physics-based VR boxing simulation optimized for Meta Quest and Valve Index platforms using Unity 6 and OpenXR. Engineered a "PunchDetector" system utilizing vector analysis and velocity tracking algorithms to automatically classify punch types such as Jab, Hook, and Uppercut. Integrated NavMesh and Finite State Machines (FSM) to create an advanced opponent AI capable of distance control, aggressive engagement, and evasion maneuvers. Utilized Continuous Collision Detection (CCD) and ConfigurableJoint components to ensure realistic physics interactions and prevent clipping during high-velocity impacts. Established a decoupled system architecture using Observer and Singleton patterns for synchronized real-time HUD updates, scoring, and spatial audio-visual effects.'
     },
     {
-      title: 'IoT-Based Precision Irrigation System',
-      description: 'A smart irrigation system designed for urban green spaces. It uses sensor data and weather information to reduce water waste and support sustainable city management.',
+      title: 'Automatic Digger/Tilling Machine',
+      description: 'A fully autonomous soil tilling mechanism based on Arduino Uno, aimed at minimizing manual labor in small-scale farming and hobby gardens.',
+      date: 'May 2025',
       icon: <Cpu size={24} className="project-icon" />,
       features: [
-        'Soil moisture monitoring',
-        'Weather-based irrigation decisions',
-        'Water-saving system design',
-        'Supports sustainability goals',
+        'Closed-loop control with HC-SR04 ultrasonic sensor for real-time soil depth monitoring',
+        'Dynamic blade angle adjustment via servomotor',
+        'Low-level AVR C firmware with Timer1 overflow interrupts for high-precision measurement',
+        'Safety protocols: obstacle detection via mechanical switches, buzzer/LED alerts',
+        'Validated in WOKWI simulation with ±1 cm depth accuracy',
       ],
-      technologies: ['IoT', 'Sensors', 'Weather API', 'Embedded Systems Concept'],
+      technologies: ['Arduino Uno (ATmega328P)', 'AVR C', 'WOKWI', 'Servo', 'HC-SR04', 'LCD'],
       githubLink: 'https://github.com',
       demoLink: 'https://github.com',
-      detailsContent: 'This project targets smart urban development by reducing water consumption in parks and campus gardens. Built around low-power sensor nodes, it monitors soil moisture and temperature levels in real-time. By querying weather APIs, the system anticipates rainfall patterns and preemptively halts scheduled water releases, resulting in substantial resource conservation and supporting sustainable city management.'
+      detailsContent: 'Designed and developed a fully autonomous soil tilling mechanism based on Arduino Uno, aimed at minimizing manual labor in small-scale farming and hobby gardens. Implemented a closed-loop control system that monitors soil depth in real-time using an HC-SR04 ultrasonic sensor and dynamically adjusts the blade angle via a servomotor. Developed low-level firmware using AVR C, utilizing Timer1 overflow interrupts for high-precision depth measurement and external interrupts for system state management. Integrated safety protocols including obstacle detection via mechanical switches, triggering immediate system halts and multi-modal alerts (Buzzer/LED) upon detecting hard debris. Validated system performance in the WOKWI simulation environment through field-emulation scenarios, achieving a depth maintenance accuracy of ±1 cm.'
     },
     {
-      title: 'Campus Network Design Project',
-      description: 'A computer network design project focused on campus and data center connectivity. The system includes access, distribution, backbone, security, and internet gateway layers.',
+      title: 'Online Gym Management System',
+      description: 'A web-based gym automation platform providing digital management for members, trainers, and administrators.',
+      date: 'Jan 2026',
       icon: <Network size={24} className="project-icon" />,
       features: [
-        'Campus network topology',
-        'Access and distribution layer design',
-        'High-speed backbone planning',
-        'Security and internet gateway integration',
+        'Scalable user management with role-based inheritance (Member, Trainer, Admin)',
+        'Dynamic content infrastructure for personalized workout plans & exercise schedules',
+        'Member progress tracking system',
+        'Intelligent scheduling system for trainer availability',
+        'Direct messaging module for trainer-member communication',
       ],
-      technologies: ['Networking', 'Routing', 'Switching', 'VLAN', 'WAN', 'Data Center Connectivity'],
+      technologies: ['Web Technologies', 'OOP (Inheritance, Polymorphism, Encapsulation)'],
       githubLink: 'https://github.com',
       demoLink: 'https://github.com',
-      detailsContent: 'An academic networking project focusing on redundancy, security, and high throughput. It designs a multi-tiered campus architecture consisting of Access, Distribution, and Core layers. Standard protocols like OSPF, spanning-tree (RSTP), and custom VLAN topologies are configured. The architecture simulates dual-homed connections to redundant ISP gateways, implementing strict firewall access controls and bandwidth policing for client nodes.'
+      detailsContent: 'Architected a web-based gym automation platform providing digital management for members, trainers, and administrators. Applied core OOP principles to build a scalable user management module where distinct roles are inherited from a centralized user structure. Developed a dynamic content infrastructure allowing trainers to manage personalized workout plans, exercise sets, and schedules, while enabling member progress tracking. Integrated an intelligent scheduling system for trainer availability and a direct messaging module to facilitate trainer-member communication.'
     },
     {
-      title: 'CSP in Distributed Systems – Research Report',
-      description: 'A research-based academic report about the use of Communicating Sequential Processes in distributed systems, focusing on process communication, synchronization, and deadlock analysis.',
-      icon: <FileText size={24} className="project-icon" />,
+      title: 'Nessy Burger – Game Jam Project',
+      description: 'A mobile game developed and published on Itch.io within 48 hours for the Yaşar University Mobile Game Jam.',
+      date: 'Nov 2023',
+      icon: <Gamepad2 size={24} className="project-icon" />,
       features: [
-        'Process communication modeling',
-        'Synchronization pattern proofs',
-        'Deadlock analysis and prevention models',
-        'Comparative study of actor-model vs CSP',
+        'Developed and published within 48-hour Game Jam deadline',
+        'Mobile-optimized game for Itch.io platform',
+        'Created during Yaşar University Mobile Game Jam',
+        'Full game loop with scoring and progression',
       ],
-      technologies: ['Distributed Systems', 'CSP', 'Process Communication', 'Synchronization', 'Deadlock Detection'],
+      technologies: ['Unity', 'C#'],
       githubLink: 'https://github.com',
       demoLink: 'https://github.com',
-      detailsContent: 'This research report formally analyzes Tony Hoare\'s Communicating Sequential Processes (CSP) formalism in distributed environments. It investigates synchronization primitives, channels, concurrent process orchestration, and mathematically addresses deadlock conditions. The paper demonstrates how modern languages like Go (channels) and library implementations inside C# leverage CSP concepts to achieve high-performance message-passing concurrency without shared state locks.'
+      detailsContent: 'Developed and published a mobile game on Itch.io within 48 hours for the Yaşar University Mobile Game Jam. This project demonstrates rapid prototyping skills, teamwork under time pressure, and the ability to deliver a fully functional game product within extreme time constraints using Unity and C#.'
     },
   ];
 
@@ -84,7 +91,7 @@ export default function Projects() {
     <section id="projects" className="section container">
       <div className="section-header">
         <h2 className="section-title">Featured Projects</h2>
-        <p className="section-subtitle">A curated collection of my work spanning VR development, embedded systems, network architectures, and theoretical computer science research.</p>
+        <p className="section-subtitle">A curated collection of my work spanning VR development, embedded systems, web platforms, and game jams.</p>
       </div>
 
       <div className="projects-grid">
@@ -92,13 +99,16 @@ export default function Projects() {
           <div key={index} className="project-card glass-card">
             <div className="project-header">
               {project.icon}
-              <div className="project-links">
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="GitHub Repository">
-                  <Github size={18} />
-                </a>
-                <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="Live Demo">
-                  <ExternalLink size={18} />
-                </a>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 500, background: 'var(--bg-badge)', padding: '4px 10px', borderRadius: '20px' }}>{project.date}</span>
+                <div className="project-links">
+                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="GitHub Repository">
+                    <Github size={18} />
+                  </a>
+                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="btn-icon" aria-label="Live Demo">
+                    <ExternalLink size={18} />
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -141,7 +151,10 @@ export default function Projects() {
               <div className="modal-icon-wrapper">
                 {selectedProject.icon}
               </div>
-              <h3 className="modal-title">{selectedProject.title}</h3>
+              <div>
+                <h3 className="modal-title">{selectedProject.title}</h3>
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{selectedProject.date}</span>
+              </div>
             </div>
             <div className="modal-body">
               <h4 className="modal-section-title">Overview</h4>

@@ -14,7 +14,7 @@ export default function CVDownload() {
               Download my complete CV in PDF format to view my detailed academic history, technical projects, certifications, and course work.
             </p>
             <a 
-              href="/Bulent_Koseoglu_CV.pdf" 
+              href="/CV/bülent_cv_eng.pdf" 
               download="Bulent_Koseoglu_CV.pdf" 
               className="btn btn-primary"
               style={{ padding: '14px 32px' }}

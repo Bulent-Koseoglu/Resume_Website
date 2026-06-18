@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, MapPin, Copy, Check, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Copy, Check, Send } from 'lucide-react';
 import { Github, Linkedin } from './BrandIcons';
 
 export default function Contact() {
@@ -7,7 +7,8 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const emailAddress = 'bulent.koseoglu@example.com'; // Placeholder
+  const emailAddress = 'bulentkoseoglu.dev@gmail.com';
+  const phoneNumber = '+90 553 824 18 03';
   const linkedinUrl = 'https://linkedin.com';
   const githubUrl = 'https://github.com';
 
@@ -84,6 +85,17 @@ export default function Contact() {
                 </div>
               </a>
 
+              {/* Phone Card */}
+              <div className="contact-method-card glass-card">
+                <div className="contact-method-icon">
+                  <Phone size={20} />
+                </div>
+                <div className="contact-method-details">
+                  <h4 className="contact-method-label">Phone</h4>
+                  <p className="contact-method-value">{phoneNumber}</p>
+                </div>
+              </div>
+
               {/* Location Card */}
               <div className="contact-method-card glass-card">
                 <div className="contact-method-icon">
@@ -91,7 +103,7 @@ export default function Contact() {
                 </div>
                 <div className="contact-method-details">
                   <h4 className="contact-method-label">Location</h4>
-                  <p className="contact-method-value">İzmir, Türkiye</p>
+                  <p className="contact-method-value">Izmir, Turkey</p>
                 </div>
               </div>
             </div>
