@@ -1,6 +1,9 @@
 import { FileDown, FileText } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function CVDownload() {
+  const { t } = useLanguage();
+
   return (
     <section id="download" className="section cv-section">
       <div className="container">
@@ -9,9 +12,9 @@ export default function CVDownload() {
             <div className="cv-icon">
               <FileDown size={48} />
             </div>
-            <h3 className="cv-title">Looking for the full story?</h3>
+            <h3 className="cv-title">{t.cv.title}</h3>
             <p className="cv-desc">
-              Download my complete CV in PDF format to view my detailed academic history, technical projects, certifications, and course work.
+              {t.cv.description}
             </p>
             <a 
               href="/CV/bülent_cv_eng.pdf" 
@@ -19,7 +22,7 @@ export default function CVDownload() {
               className="btn btn-primary"
               style={{ padding: '14px 32px' }}
             >
-              <FileText size={18} /> Download My CV
+              <FileText size={18} /> {t.cv.button}
             </a>
           </div>
         </div>

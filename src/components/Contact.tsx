@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Mail, MapPin, Phone, Copy, Check, Send } from 'lucide-react';
 import { Github, Linkedin } from './BrandIcons';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const { t } = useLanguage();
 
   const emailAddress = 'bulentkoseoglu.dev@gmail.com';
   const phoneNumber = '+90 553 824 18 03';
@@ -32,15 +34,15 @@ export default function Contact() {
   return (
     <section id="contact" className="section container">
       <div className="section-header">
-        <h2 className="section-title">Get In Touch</h2>
-        <p className="section-subtitle">Feel free to contact me for internship opportunities, software projects, or collaboration.</p>
+        <h2 className="section-title">{t.contact.title}</h2>
+        <p className="section-subtitle">{t.contact.subtitle}</p>
       </div>
 
       <div className="contact-grid">
         <div className="contact-info">
           <div>
             <p className="contact-intro">
-              I am open to discussions regarding software development roles, networking research, VR engineering, or general system administration staj opportunities. I will get back to you as quickly as possible.
+              {t.contact.intro}
             </p>
 
             <div className="contact-methods">
@@ -50,13 +52,13 @@ export default function Contact() {
                   <Mail size={20} />
                 </div>
                 <div className="contact-method-details">
-                  <h4 className="contact-method-label">Email</h4>
+                  <h4 className="contact-method-label">{t.contact.email}</h4>
                   <p className="contact-method-value">{emailAddress}</p>
                 </div>
                 <button 
                   className="contact-method-copy" 
                   onClick={handleCopyEmail}
-                  title="Copy email to clipboard"
+                  title={t.contact.copyEmail}
                   aria-label="Copy email"
                 >
                   {copied ? <Check size={16} style={{ color: '#10b981' }} /> : <Copy size={16} />}
@@ -69,7 +71,7 @@ export default function Contact() {
                   <Linkedin size={20} />
                 </div>
                 <div className="contact-method-details">
-                  <h4 className="contact-method-label">LinkedIn</h4>
+                  <h4 className="contact-method-label">{t.contact.linkedin}</h4>
                   <p className="contact-method-value">linkedin.com/in/bulent-koseoglu</p>
                 </div>
               </a>
@@ -80,7 +82,7 @@ export default function Contact() {
                   <Github size={20} />
                 </div>
                 <div className="contact-method-details">
-                  <h4 className="contact-method-label">GitHub</h4>
+                  <h4 className="contact-method-label">{t.contact.github}</h4>
                   <p className="contact-method-value">github.com/bulent-koseoglu</p>
                 </div>
               </a>
@@ -91,7 +93,7 @@ export default function Contact() {
                   <Phone size={20} />
                 </div>
                 <div className="contact-method-details">
-                  <h4 className="contact-method-label">Phone</h4>
+                  <h4 className="contact-method-label">{t.contact.phone}</h4>
                   <p className="contact-method-value">{phoneNumber}</p>
                 </div>
               </div>
@@ -102,8 +104,8 @@ export default function Contact() {
                   <MapPin size={20} />
                 </div>
                 <div className="contact-method-details">
-                  <h4 className="contact-method-label">Location</h4>
-                  <p className="contact-method-value">Izmir, Turkey</p>
+                  <h4 className="contact-method-label">{t.contact.location}</h4>
+                  <p className="contact-method-value">{t.contact.locationValue}</p>
                 </div>
               </div>
             </div>
@@ -117,48 +119,48 @@ export default function Contact() {
               <div style={{ background: 'rgba(16, 185, 129, 0.1)', color: '#10b981', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '16px', borderRadius: '50%', marginBottom: '16px' }}>
                 <Check size={32} />
               </div>
-              <h3 style={{ fontSize: '1.4rem', marginBottom: '8px' }}>Message Sent!</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Thank you for reaching out. I will get back to you shortly.</p>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '8px' }}>{t.contact.messageSentTitle}</h3>
+              <p style={{ color: 'var(--text-muted)' }}>{t.contact.messageSentDesc}</p>
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleFormSubmit}>
               <div className="form-group">
-                <label htmlFor="name" className="form-label">Full Name</label>
+                <label htmlFor="name" className="form-label">{t.contact.formName}</label>
                 <input
                   type="text"
                   id="name"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="John Doe"
+                  placeholder={t.contact.formNamePlaceholder}
                   className="form-input"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email" className="form-label">Email Address</label>
+                <label htmlFor="email" className="form-label">{t.contact.formEmail}</label>
                 <input
                   type="email"
                   id="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="johndoe@example.com"
+                  placeholder={t.contact.formEmailPlaceholder}
                   className="form-input"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="message" className="form-label">Your Message</label>
+                <label htmlFor="message" className="form-label">{t.contact.formMessage}</label>
                 <textarea
                   id="message"
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="I am interested in discussing staj or project collaboration..."
+                  placeholder={t.contact.formMessagePlaceholder}
                   className="form-input"
                 />
               </div>
               <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                Send Message <Send size={16} />
+                {t.contact.sendMessage} <Send size={16} />
               </button>
             </form>
           )}
