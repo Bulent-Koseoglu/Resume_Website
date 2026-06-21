@@ -334,6 +334,49 @@ h1, h2, h3, h4, h5 {
   padding: 4px;
 }
 
+/* --- LANGUAGE TOGGLE --- */
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.lang-toggle-btn:hover {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: var(--border-hover);
+  color: var(--text-main);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.lang-toggle-btn svg {
+  color: var(--text-muted);
+  transition: color var(--transition-normal);
+}
+
+.lang-toggle-btn:hover svg {
+  color: var(--primary);
+}
+
+.lang-toggle-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
 /* --- HERO SECTION --- */
 .hero-wrapper {
   min-height: 100vh;
