@@ -11,6 +11,7 @@
   
   --primary: #6366f1; /* Indigo */
   --primary-rgb: 99, 102, 241;
+  --primary-glow: rgba(99, 102, 241, 0.15);
   --secondary: #3b82f6; /* Blue */
   --secondary-rgb: 59, 130, 246;
   --accent: #8b5cf6; /* Purple */
@@ -90,6 +91,7 @@ a {
 .glow-wrapper {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .glow-orb {
@@ -540,6 +542,8 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 12px;
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 
 .terminal-prompt {
@@ -1166,5 +1170,37 @@ textarea.form-input {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .glass-card {
+    padding: 20px;
+  }
+  .terminal-body {
+    padding: 16px;
+  }
+  .education-main {
+    padding-left: 20px;
+  }
+  .education-date {
+    padding-left: 20px;
+  }
+  .about-highlights {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
